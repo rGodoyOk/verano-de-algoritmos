@@ -30,7 +30,7 @@ struct NodoLA {  //Nodo
 };
 
 struct NodoLDnis {
-	uint dni;
+	uint info;
 	Nodo *sgte;
 };
 
@@ -43,10 +43,20 @@ int main (){
 		for (ushort j=0; j<15; j++)
 			MatrizRE[i][j] = NULL;
 	
-	while (fread (&auxArch, sizeof auxArch, 1, f)){
-		InsertaOrdenado (MatrizRE[auxArch.nroReg][auxArch.nroEsp], auxArch.dni);
-	
-	
+	while (fread (&auxArch, sizeof auxArch, 1, f))
+		InsertaOrdenado (MatrizRE[auxArch.nroReg-1][auxArch.nroEsp-1], auxArch.dni);
+	for (ushort i=0; i<23; i++)
+		for (ushort j=0; j<15; j++){
+			NodoLDnis *aux = MatrizRE[i][j];
+			while (aux != NULL){
+				int dni = aux -> info;
+				Nodo *alu = buscar (ListaAlumnos, dni);
+				cout << i+1 << j+1 << << alu->info.nYA;
+				for (ushort k=0; k<45; k++)
+					if (alu->info.materias[k].nota >=4)
+						cout <<....
+				
+			
 	
 	
 	
